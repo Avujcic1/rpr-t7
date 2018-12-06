@@ -1,4 +1,4 @@
-package ba.unsa.etf;
+package ba.unsa.rpr.tutorijal7;
 
 class Grad {
 
