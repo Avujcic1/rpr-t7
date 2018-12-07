@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <drzave>
-    <drzava stanovnika="4500000">
+    <drzava stanovnika="4500000" >
         <naziv>Francuska</naziv>
         <glavnigrad stanovnika="800000">
             <naziv>Paris</naziv>
