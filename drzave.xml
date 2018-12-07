@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<drzave>
+    <drzava stanovnika="4500000">
+        <naziv>Francuska</naziv>
+        <glavnigrad stanovnika="800000">
+            <naziv>Paris</naziv>
+        </glavnigrad>
+        <povrsina jedinica="km2">21001</povrsina>
+    </drzava>
+
+    <drzava stanovnika="14000000">
+        <naziv>Njemacka</naziv>
+        <glavnigrad stanovnika="2000000">
+            <naziv>Berlin</naziv>
+        </glavnigrad>
+        <povrsina jedinica="km2">12456</povrsina>
+    </drzava>
+</drzave>

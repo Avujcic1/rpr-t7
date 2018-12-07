@@ -8,13 +8,15 @@ import java.util.Scanner;
 public class Tutorijal {
 
     static ArrayList<Grad> ucitajGradove(){
+
         Scanner input;
         try {
-            input = new Scanner(new FileReader("mjerenja.txt"));
+            input = new Scanner(new FileReader("Mjerenja.txt"));
         }catch(FileNotFoundException ex){
             System.out.println("Greska: " + ex);
             return null;
         }
+
         ArrayList<String> test = new ArrayList<String>();
 
         while(input.hasNext()){
@@ -27,7 +29,7 @@ public class Tutorijal {
             double[] temp = new double[1000];
             String[] nazivGrada = it.split(",");
             if (nazivGrada.length >= 1000) {
-                System.out.println("Prekoracen limit niza temperature!");
+                System.out.println("Prekoracen limit niza temperatura!");
                 return null;
             }
 
@@ -46,6 +48,10 @@ public class Tutorijal {
 
         input.close();
         return gradovi;
+    }
+
+    static ArrayList<Drzava> ucitajXml() {
+
     }
 
     public static void main(String[] args) {
