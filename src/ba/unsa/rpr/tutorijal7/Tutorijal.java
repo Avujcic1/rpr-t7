@@ -1,11 +1,17 @@
 package ba.unsa.rpr.tutorijal7;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import org.w3c.dom.*;
+
+import javax.swing.text.Element;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.beans.XMLEncoder;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tutorijal {
+
 
     static ArrayList<Grad> ucitajGradove(){
 
@@ -50,9 +56,57 @@ public class Tutorijal {
         return gradovi;
     }
 
-    static ArrayList<Drzava> ucitajXml() {
 
+    static UN ucitajXml(ArrayList<Grad> gradovi){
+
+        UN drzave = new UN ();
+        ArrayList<Drzava> listaDrzava = new ArrayList<Drzava>();
+        Document doc = null;
+
+        try {
+            DocumentBuilder docReader = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            doc = docReader.parse(new File("drzave.xml"));
+        } catch (Exception e) {
+            System.out.println("drzave.xml nije validan XML dokument");
+        }
+
+        NodeList xmlDrzave = doc.getChildNodes();
+        for(int i=0; i<xmlDrzave.getLength(); i++){
+            Node temp = xmlDrzave.item(i);
+            if(temp instanceof Element){
+
+                String stanovnici = ((Element) temp).getAttribute("stanovnika");
+                String nazivDrzave = ((Element) temp).getAttribute("naziv");
+                String jedinicaPovrsine = ((Element) temp).getAttribute("jedinica");
+
+                Grad glavni = new Grad();
+                Drzava tempDrzave = new Drzava();
+
+                tempDrzave.setBrojStanovnika(Integer.parseInt(String.valueOf(stanovnici)));
+                tempDrzave.setNaziv(String.valueOf(nazivDrzave));
+                tempDrzave.setGlavniGrad(glavni);
+                tempDrzave.setJedinicaPovrsine(String.valueOf(jedinicaPovrsine));
+
+                listaDrzava.add(tempDrzave);
+            }
+        }
+        drzave.setDrzave(listaDrzava);
+        return drzave;
     }
+
+
+    static void zapisiXml(UN drzave){
+
+        try {
+            XMLEncoder temp = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("un.xml")));
+            temp.writeObject(drzave);
+            temp.close();
+        } catch(Exception e) {
+            System.out.println("Greška: " + e);
+        }
+    }
+
+
 
     public static void main(String[] args) {
         ArrayList<Grad> gradovi = ucitajGradove();
