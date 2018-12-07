@@ -1,6 +1,6 @@
 package ba.unsa.rpr.tutorijal7;
 
-class Grad {
+public class Grad {
 
     private String naziv = new String();
     private int brojStanovnika;
