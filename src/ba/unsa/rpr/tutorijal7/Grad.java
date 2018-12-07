@@ -3,7 +3,7 @@ package ba.unsa.rpr.tutorijal7;
 class Grad {
 
     private String naziv = new String();
-    private int broj_stanovnika;
+    private int brojStanovnika;
     private double[] temperature = new double[1000];
 
     public Grad() {}
@@ -12,16 +12,16 @@ class Grad {
         return temperature;
     }
 
-    public int getBroj_stanovnika() {
-        return broj_stanovnika;
+    public int getBrojStanovnika() {
+        return brojStanovnika;
     }
 
     public void setTemperature(double[] temperature) {
         this.temperature = temperature;
     }
 
-    public void setBroj_stanovnika(int broj_stanovnika) {
-        this.broj_stanovnika = broj_stanovnika;
+    public void setBrojStanovnika(int brojStanovnika) {
+        this.brojStanovnika = brojStanovnika;
     }
 
     public String getNaziv() {
